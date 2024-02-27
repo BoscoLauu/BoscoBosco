@@ -18,12 +18,25 @@
     </nav>
     <main>
       <h1>Home page</h1>
-      <form method="get" action= "https://script.google.com/macros/s/AKfycbzyb4nyJrVj_19kZxI5cJbg_2pjXHv_4u8vcgcVybfOwa40P-TneeKKNisa1YOm5wxyRQ/exec">
-      <form>
-        text: <input type= "text" name= "a"><br>
-        password: <input type= "password" name= "b"><br>
-        <input type= "submit">
+      <form
+      id="formId"
+      method="get" 
+      action= "https://script.google.com/macros/s/AKfycbzyb4nyJrVj_19kZxI5cJbg_2pjXHv_4u8vcgcVybfOwa40P-TneeKKNisa1YOm5wxyRQ/exec">
+        
+        text: <input type= "text" name= "a" id="textId"/><br />
+        password: <input type= "password" name= "b" id="passwordId"><br>
+        <input type= "submit" />
       </form>
     </main>
+    <script>
+      document.getElementById("formId").addEventListener("submit", e => {
+        e.preventDefault()
+        const text = document.getElementById("textId").value
+        const password = document.getElementById("passwordId").value
+        document.getElementById("formId").innerText = "Loading..."
+
+        console.log(text, password)
+      })
+    </script>
   </body>
 </html>
