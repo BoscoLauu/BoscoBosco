@@ -1,1 +1,1 @@
-console.log('Hello!');
+const url = window.location.href;

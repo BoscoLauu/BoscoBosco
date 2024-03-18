@@ -26,15 +26,15 @@
         text: <input type= "text" name= "a" id="textId"/><br />
         password: <input type= "password" name= "b" id="passwordId"><br>
         <input type= "submit" />
-        <span class="loader"></span>123
-      </form>
+       </form> 
+      <span class="loader hidden"></span>
     </main>
     <script>
       document.getElementById("formId").addEventListener("submit", async e => {
         e.preventDefault()
         const text = document.getElementById("textId").value
         const password = document.getElementById("passwordId").value
-        document.getElementById("formId").innerText = "Loading..."
+        document.getElementById("formId").innerText = ""
         document.getElementsByClassName("loader")[0].classList.toggle("hidden")
 
         const res = await fetch("https://script.google.com/macros/s/AKfycbx7ikTdBJKe1U-SULWdS2ekXGNbM8ep04o1mmjWG6MEzHlZdaz35iJyPC6A35hgR_oclg/exec"
@@ -44,6 +44,8 @@
 
           // const res = await new Promise(resolve => setTimeout(resolve, 3000))
           document.getElementsByClassName("loader")[0].classList.toggle("hidden")
+
+          
           
           
           
